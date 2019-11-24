@@ -1,7 +1,7 @@
 MPD Notification Scripts
 ========================
 
-MPD is the Music Player Daemon <http://www.musicpd.org/>
+MPD is the Music Player Daemon <https://www.musicpd.org/>
 which may be controlled via `mpc` at the shell command-line.
 
 This trivial Bash script and companion Python program provide desktop
@@ -15,12 +15,12 @@ running, less to do for longer batter life on a laptop computer.
 
 Get dependencies, on Debian/Ubuntu:
 
-	sudo apt-get install mpd mpc python-notify
+	sudo apt-get install mpd mpc python3 python3-notify2
 
-Install these scripts into the following subdirectory:
-(or put in location accessible to $PATH and update scripts)
+Install into a subdirectory known by your $PATH environment variable, such as:
 
-	~/bin/mpd-notify/
+- `/usr/local/bin/`
+- `~/bin/`
 
 Revise music, playlists subdirectories:
 
@@ -35,7 +35,13 @@ Load music library:
 
 Start this script in background:
 
-	updatestatus.sh &
+	./notify.py --repeat &
+
+or
+
+	./notify.py -r &
+    
+(See also Unix manual page for `nohup(1)`.)
 
 Start playing music:
 
@@ -55,3 +61,4 @@ System Settings -> Keyboard -> Shortcuts
 - /usr/bin/mpc prev => Fn `<audio prev>`
 - /usr/bin/mpc toggle => Fn `<audio play>`
 - /usr/bin/mpc next => Fn `<audio next>`
+- /usr/local/bin/notify.py => Fn `<audio status>`
